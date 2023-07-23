@@ -52,7 +52,6 @@ public class PlayerControlle : MonoBehaviour
         // Jump fun
         if (Input.GetButtonDown("Jump"))
         {
-            anim.SetFloat("JumpValue",0f);
             jump();
         }
         if (IsMobile == Controlle.Mobile)
@@ -86,10 +85,11 @@ public class PlayerControlle : MonoBehaviour
         character.Move(vilosity * Time.deltaTime);
 
     }
-    void jump()
+    public void jump()
     {
         if (isGraund)
         {
+            anim.SetFloat("JumpValue",0f);
 
             vilosity.y = Mathf.Sqrt(speedJump * -2f * gravity);
 
